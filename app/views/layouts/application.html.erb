@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo App</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application' %>
+  </head>
+  <body>
+    <header>
+    <% current_hour = Time.current.hour %>
+    <% greeting =
+    if current_hour >= 5 && current_hour < 12
+      "Good morning!"
+    elsif current_hour >= 12 && current_hour < 17
+      "Good afternoon!"
+    elsif current_hour >= 17 && current_hour < 21
+      "Good evening!"
+    else
+      "Good night!"
+    end
+  %>
+  <h2><%= greeting %></h2>
+      <h1>Todo Application</h1>
+      <p>Total visits: <%= @visit_count %></p>
+      <p>Visits to this page: <%= @page_visit_count %></p>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <% if @last_visited.present? %>
+        <p>Last visited: <%= time_ago_in_words(@last_visited) %> ago</p>
+      <% else %>
+        <p>This is your first visit.</p>
+      <% end %>
+    </footer>
+  </body>
+</html>

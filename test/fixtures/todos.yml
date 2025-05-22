@@ -1,0 +1,14 @@
+one:
+  title: "First Todo"
+  description: "This is the first todo item"
+  status: "pending"
+
+two:
+  title: "Second Todo"
+  description: "This is the second todo item"
+  status: "in_progress"
+
+completed:
+  title: "Completed Todo"
+  description: "This todo is already done"
+  status: "completed" 
